@@ -1,4 +1,6 @@
 from django.db import models
+from django import forms
+from django.forms import ClearableFileInput
 
 class Resume(models.Model):
     resume        = models.FileField('Upload Resume', upload_to='resume/')
@@ -11,3 +13,11 @@ class Resume(models.Model):
     college_name  = models.CharField('University/College Name', max_length=1000, null=True, blank=True)
     experience    = models.CharField('Experience', max_length=1000, null=True, blank=True)
     uploaded_on   = models.DateTimeField('Uploaded On', auto_now_add=True)
+
+class UploadResumeModelForm(forms.ModelForm):
+    class Meta:
+        model = Resume
+        fields = ['resume']
+        widgets = {
+            'resume': ClearableFileInput(attrs={'multiple': True}),
+        }
