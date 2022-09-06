@@ -4,7 +4,7 @@ import re
 import nltk
 import pandas as pd
 import docx2txt
-from . import constants as cs
+from . import global_constants as cs
 from pdfminer.converter import TextConverter
 from pdfminer.pdfinterp import PDFPageInterpreter
 from pdfminer.pdfinterp import PDFResourceManager
