@@ -179,3 +179,8 @@ def extract_experience(resume_text):
 
     x = [x[x.lower().index('experience') + 10:] for i, x in enumerate(test) if x and 'experience' in x.lower()]
     return x
+
+def string_found(string1, string2):
+    if re.search(r"\b" + re.escape(string1) + r"\b", string2):
+        return True
+    return False
